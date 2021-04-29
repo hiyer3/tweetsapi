@@ -2,10 +2,12 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-
 use Abraham\TwitterOAuth\TwitterOAuth;
 
-$connection = new TwitterOAuth('', '', '', '');
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$connection = new TwitterOAuth($_ENV['OAUTH_ACCESS_TOKEN'], $_ENV['OAUTH_ACCESS_TOKEN_SECRET'], $_ENV['YOUR_CONSUMER_KEY'], $_ENV['YOUR_CONSUMER_SECRET']);
 $statuses = $connection->get("search/tweets", ["q" => "#pune OR #bed OR #covid OR #plasma OR #oxygensupply", 'result_type' => 'mixed', 'count' => '100', 'tweet_mode' => 'extended', 'include_entities' => 'false', 'f' => 'live']);
 $statuses = json_decode(json_encode($statuses), true);
 
@@ -84,5 +86,5 @@ foreach($statuses as $status){
     $response = $service->spreadsheets_values->append($spreadsheetId, $range, $valueRange, $conf);
 }
 
-echo "data inserted";
+
 ?>

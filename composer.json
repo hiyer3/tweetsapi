@@ -2,5 +2,8 @@
     "require": {
         "abraham/twitteroauth": "^2.0",
         "google/apiclient": "^2.0"
+    },
+    "require-dev": {
+        "vlucas/phpdotenv": "^5.3"
     }
 }
