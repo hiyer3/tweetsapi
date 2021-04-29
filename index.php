@@ -5,7 +5,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 
-$connection = new TwitterOAuth('wNAvUMzcmEa4KbYtF4xrQINLs', 'gboaAxwNvuUkxg7Jd3JpRrH6rysYKQsRIhBVydeSveWGUqSET9', '347302784-OvOQJF4KQdpXuJ6Lynmf4xnj7xJN2MUeoXczNS7q', 'AIFhWN2FYyTgTEooWO6RipzINXZgrWvMyFJC5vPUe39nq');
+$connection = new TwitterOAuth('', '', '', '');
 $statuses = $connection->get("search/tweets", ["q" => "#pune OR #bed OR #covid OR #plasma OR #oxygensupply", 'result_type' => 'mixed', 'count' => '100', 'tweet_mode' => 'extended', 'include_entities' => 'false', 'f' => 'live']);
 $statuses = json_decode(json_encode($statuses), true);
 
