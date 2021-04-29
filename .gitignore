@@ -1,3 +1,13 @@
+#NPM
+node_modules
+package-lock.json
+
+#Composer
+vendor
+
+#Google Doc Token
 credentials.json
 token.json
+
+#Keys
 .env
